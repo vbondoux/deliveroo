@@ -1,4 +1,6 @@
 import requests
+import os
+from dotenv import load_dotenv
 from datetime import datetime, timedelta
 
 #--- Customize here
@@ -7,6 +9,11 @@ password = 'PASSWORD'
 # Directory path that you want to store invoice files
 directory_path = 'path/to/your/directory'
 #---
+load_dotenv()
+
+email = os.getenv('DELIVEROO_EMAIL')
+password = os.getenv('DELIVEROO_PASSWORD')
+directory_path = os.getenv('DIRECTORY_PATH')
 
 LOGIN_API = 'https://restaurant-hub.deliveroo.net/api/session'
 payload = {'email': email, 'password': password}
